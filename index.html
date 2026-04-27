@@ -1,0 +1,1036 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Brown Bear Toys — Ukiah, CA</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet"/>
+<!--
+  ╔══════════════════════════════════════════════════════════════╗
+  ║         BROWN BEAR TOYS — PAYPAL SETUP (STORE OWNER)        ║
+  ╠══════════════════════════════════════════════════════════════╣
+  ║  To receive payments, the store owner must:                  ║
+  ║                                                              ║
+  ║  1. Go to: paypal.com/us/business → Sign Up (free)          ║
+  ║  2. Then go to: developer.paypal.com                         ║
+  ║  3. Log in → Apps & Credentials → Switch to LIVE            ║
+  ║  4. Click "Create App" → name it "Brown Bear Toys"           ║
+  ║  5. Copy the Client ID (starts with "A...")                  ║
+  ║  6. Paste it below replacing: PASTE_PAYPAL_CLIENT_ID_HERE    ║
+  ║                                                              ║
+  ║  That's it! Money goes straight to your PayPal account.      ║
+  ╚══════════════════════════════════════════════════════════════╝
+-->
+<script>
+  // ▼▼▼ STORE OWNER: PASTE YOUR PAYPAL CLIENT ID ON THE NEXT LINE ▼▼▼
+  window.PAYPAL_CLIENT_ID = "PASTE_PAYPAL_CLIENT_ID_HERE";
+  // ▲▲▲ THAT'S THE ONLY LINE YOU NEED TO CHANGE ▲▲▲
+</script>
+<script>
+(function(){
+  var id = window.PAYPAL_CLIENT_ID;
+  if(id && id !== "PASTE_PAYPAL_CLIENT_ID_HERE"){
+    var s = document.createElement('script');
+    s.src = 'https://www.paypal.com/sdk/js?client-id='+encodeURIComponent(id)+'&currency=USD';
+    s.onload = function(){ window.paypalSDKReady = true; };
+    s.onerror = function(){ window.paypalSDKError = true; };
+    document.head.appendChild(s);
+  }
+})();
+</script>
+<style>
+*{box-sizing:border-box;margin:0;padding:0;}
+:root{
+  --brown:#5C3D1E;--brown2:#7A4F28;--brown3:#A0642A;
+  --cream:#FDF6EC;--cream2:#FAF0DC;
+  --accent:#E8A44A;--accent2:#F5C06A;
+  --red:#E85454;--green:#4CAF6F;--teal:#2ABFA8;
+  --text:#2C1A0E;--muted:#9C8270;--border:rgba(92,61,30,0.12);
+  --surface:#fff;
+  --paypal:#003087;--paypal2:#009cde;
+}
+body{font-family:'Nunito',sans-serif;background:var(--cream);color:var(--text);min-height:100vh;}
+
+/* ── DNS BANNER ── */
+.dns-banner{background:#1a1108;color:rgba(255,255,255,0.9);text-align:center;padding:8px 16px;font-size:13px;font-weight:600;display:flex;align-items:center;justify-content:center;gap:10px;}
+.dns-banner.ok{background:#166534;color:#bbf7d0;}
+.dns-banner.fail{background:#7f1d1d;color:#fecaca;}
+.dns-dot{width:8px;height:8px;border-radius:50%;background:currentColor;animation:pulse 1.5s infinite;}
+.dns-banner.ok .dns-dot,.dns-banner.fail .dns-dot{animation:none;}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:0.3}}
+
+/* ── HEADER ── */
+.header{background:var(--brown);padding:0 2rem;display:flex;align-items:center;justify-content:space-between;height:68px;position:sticky;top:0;z-index:100;}
+.logo{font-family:'Fredoka One',cursive;font-size:26px;color:var(--accent2);letter-spacing:1px;display:flex;align-items:center;gap:10px;}
+.logo-bear{font-size:28px;}
+.header-right{display:flex;align-items:center;gap:12px;}
+.cart-btn{background:var(--accent);border:none;border-radius:999px;padding:9px 20px;font-family:'Nunito',sans-serif;font-weight:700;font-size:15px;color:var(--brown);cursor:pointer;display:flex;align-items:center;gap:8px;transition:transform 0.15s,background 0.15s;}
+.cart-btn:hover{background:var(--accent2);transform:scale(1.04);}
+.cart-count{background:var(--red);color:white;border-radius:50%;width:22px;height:22px;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;}
+.admin-link{background:rgba(255,255,255,0.12);border:none;border-radius:8px;padding:7px 14px;color:rgba(255,255,255,0.7);font-family:'Nunito',sans-serif;font-size:13px;font-weight:600;cursor:pointer;transition:background 0.15s;}
+.admin-link:hover{background:rgba(255,255,255,0.2);color:white;}
+
+/* ── HERO ── */
+.hero{background:var(--brown2);padding:2.5rem 2rem;text-align:center;position:relative;overflow:hidden;}
+.hero-paw{position:absolute;font-size:120px;opacity:0.05;}
+.hero-paw.l{left:-20px;top:-10px;}
+.hero-paw.r{right:-20px;bottom:-20px;}
+.hero-inner{position:relative;}
+.hero h1{font-family:'Fredoka One',cursive;font-size:44px;color:var(--accent2);line-height:1.1;margin-bottom:10px;}
+.hero p{color:rgba(255,255,255,0.8);font-size:17px;margin-bottom:20px;}
+.hero-sub{color:rgba(255,255,255,0.55);font-size:14px;font-weight:600;letter-spacing:1px;text-transform:uppercase;}
+.hero-pills{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:16px;}
+.pill{background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.2);border-radius:999px;padding:6px 16px;color:rgba(255,255,255,0.85);font-size:13px;font-weight:600;}
+
+/* ── FILTERS ── */
+.filters{display:flex;gap:10px;padding:1.5rem 2rem 0.5rem;flex-wrap:wrap;align-items:center;background:var(--cream);}
+.filter-label{font-weight:700;color:var(--brown);font-size:14px;margin-right:4px;}
+.filter-btn{border:2px solid var(--border);background:white;border-radius:999px;padding:7px 18px;font-family:'Nunito',sans-serif;font-size:14px;font-weight:600;cursor:pointer;color:var(--text);transition:all 0.15s;}
+.filter-btn:hover{border-color:var(--brown3);color:var(--brown);}
+.filter-btn.active{background:var(--brown);color:white;border-color:var(--brown);}
+
+/* ── GRID ── */
+.section-title{font-family:'Fredoka One',cursive;font-size:24px;color:var(--brown);padding:1.5rem 2rem 0.5rem;}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:20px;padding:1rem 2rem 2rem;}
+.card{background:white;border-radius:20px;border:1.5px solid var(--border);overflow:hidden;transition:transform 0.2s,box-shadow 0.2s;display:flex;flex-direction:column;}
+.card:hover{transform:translateY(-4px);box-shadow:0 12px 32px rgba(92,61,30,0.12);}
+.card-img{height:160px;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;}
+.card-img img{width:100%;height:100%;object-fit:cover;}
+.card-img .emoji-fallback{font-size:60px;}
+.badge{position:absolute;top:10px;right:10px;background:var(--red);color:white;font-size:11px;font-weight:700;border-radius:999px;padding:3px 10px;z-index:2;}
+.badge.new{background:var(--green);}
+.card-body{padding:14px 16px;flex:1;display:flex;flex-direction:column;gap:6px;}
+.card-name{font-weight:700;font-size:15px;color:var(--brown);line-height:1.3;}
+.card-age{font-size:12px;color:var(--muted);font-weight:600;}
+.card-bottom{display:flex;align-items:center;justify-content:space-between;margin-top:auto;padding-top:10px;}
+.price{font-family:'Fredoka One',cursive;font-size:20px;color:var(--brown2);}
+.add-btn{background:var(--brown);color:white;border:none;border-radius:10px;padding:8px 14px;font-family:'Nunito',sans-serif;font-weight:700;font-size:13px;cursor:pointer;transition:background 0.15s,transform 0.1s;}
+.add-btn:hover{background:var(--brown2);}
+.add-btn:active{transform:scale(0.96);}
+.add-btn.added{background:var(--teal);}
+
+/* ── CART PANEL ── */
+.cart-overlay{position:fixed;inset:0;background:rgba(0,0,0,0.4);z-index:200;display:none;align-items:flex-start;justify-content:flex-end;}
+.cart-overlay.open{display:flex;}
+.cart-panel{background:white;width:380px;max-width:95vw;height:100vh;display:flex;flex-direction:column;box-shadow:-8px 0 40px rgba(0,0,0,0.15);animation:slideIn 0.25s ease;}
+@keyframes slideIn{from{transform:translateX(100%)}to{transform:translateX(0)}}
+.cart-header{background:var(--brown);color:white;padding:1.25rem 1.5rem;display:flex;align-items:center;justify-content:space-between;flex-shrink:0;}
+.cart-header h2{font-family:'Fredoka One',cursive;font-size:22px;color:var(--accent2);}
+.close-btn{background:rgba(255,255,255,0.15);border:none;color:white;width:34px;height:34px;border-radius:50%;cursor:pointer;font-size:18px;display:flex;align-items:center;justify-content:center;transition:background 0.15s;}
+.close-btn:hover{background:rgba(255,255,255,0.25);}
+.cart-items{flex:1;overflow-y:auto;padding:1rem 1.5rem;}
+.empty-cart{text-align:center;padding:3rem 1rem;}
+.empty-cart p{color:var(--muted);font-size:16px;margin-top:12px;}
+.cart-item{display:flex;align-items:center;gap:12px;padding:12px 0;border-bottom:1px solid var(--border);}
+.cart-item-img{width:48px;height:48px;border-radius:10px;overflow:hidden;flex-shrink:0;background:var(--cream);display:flex;align-items:center;justify-content:center;font-size:28px;}
+.cart-item-img img{width:100%;height:100%;object-fit:cover;}
+.cart-item-info{flex:1;}
+.cart-item-name{font-weight:700;font-size:14px;color:var(--brown);}
+.cart-item-price{font-size:13px;color:var(--muted);margin-top:2px;}
+.qty-ctrl{display:flex;align-items:center;gap:8px;}
+.qty-btn{background:var(--cream);border:1.5px solid var(--border);border-radius:8px;width:28px;height:28px;cursor:pointer;font-size:16px;display:flex;align-items:center;justify-content:center;font-weight:700;transition:background 0.1s;}
+.qty-btn:hover{background:var(--cream2);}
+.qty-num{font-weight:700;font-size:15px;min-width:20px;text-align:center;}
+.cart-footer{padding:1.25rem 1.5rem;border-top:1.5px solid var(--border);flex-shrink:0;background:white;}
+.cart-total{display:flex;justify-content:space-between;font-size:18px;font-weight:700;color:var(--brown);margin-bottom:16px;}
+.cart-total span:last-child{font-family:'Fredoka One',cursive;font-size:22px;color:var(--brown3);}
+.checkout-btn{width:100%;background:var(--accent);border:none;border-radius:14px;padding:14px;font-family:'Fredoka One',cursive;font-size:20px;color:var(--brown);cursor:pointer;transition:background 0.15s,transform 0.1s;letter-spacing:0.5px;}
+.checkout-btn:hover{background:var(--accent2);transform:scale(1.02);}
+.checkout-btn:disabled{background:#E5E7EB;color:#9CA3AF;cursor:not-allowed;transform:none;}
+
+/* ── CHECKOUT MODAL ── */
+.modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,0.5);z-index:300;display:none;align-items:center;justify-content:center;padding:1rem;}
+.modal-overlay.open{display:flex;}
+.modal{background:white;border-radius:24px;width:500px;max-width:100%;max-height:90vh;overflow-y:auto;animation:popIn 0.25s cubic-bezier(0.34,1.56,0.64,1);}
+@keyframes popIn{from{transform:scale(0.85);opacity:0}to{transform:scale(1);opacity:1}}
+.modal-header{background:var(--brown);border-radius:24px 24px 0 0;padding:1.5rem;color:white;}
+.modal-header h2{font-family:'Fredoka One',cursive;font-size:24px;color:var(--accent2);}
+.modal-header p{color:rgba(255,255,255,0.7);font-size:14px;margin-top:4px;}
+.modal-body{padding:1.5rem;}
+.order-summary{background:var(--cream);border-radius:14px;padding:14px;margin-bottom:20px;}
+.order-summary h3{font-weight:700;font-size:14px;color:var(--brown);margin-bottom:10px;}
+.order-line{display:flex;justify-content:space-between;font-size:13px;color:var(--text);padding:3px 0;}
+.order-total{border-top:1.5px solid var(--border);margin-top:8px;padding-top:8px;font-weight:700;font-size:15px;color:var(--brown);display:flex;justify-content:space-between;}
+
+/* PayPal button area */
+.paypal-section{margin-top:8px;}
+.paypal-divider{display:flex;align-items:center;gap:12px;margin:16px 0;}
+.paypal-divider span{color:var(--muted);font-size:13px;font-weight:600;white-space:nowrap;}
+.paypal-divider::before,.paypal-divider::after{content:'';flex:1;height:1px;background:var(--border);}
+#paypal-button-container{min-height:50px;border-radius:12px;overflow:hidden;}
+.paypal-note{text-align:center;font-size:12px;color:var(--muted);margin-top:10px;display:flex;align-items:center;justify-content:center;gap:6px;}
+.paypal-not-configured{background:#FEF3C7;border:1px solid #FCD34D;border-radius:12px;padding:16px;text-align:center;margin-top:8px;}
+.paypal-not-configured strong{display:block;color:#92400E;font-size:15px;margin-bottom:6px;}
+.paypal-not-configured p{color:#78350F;font-size:13px;line-height:1.5;}
+.paypal-not-configured code{background:#FDE68A;padding:2px 6px;border-radius:4px;font-size:12px;}
+
+.cancel-link{display:block;text-align:center;margin-top:12px;color:var(--muted);font-size:14px;cursor:pointer;font-weight:600;}
+.cancel-link:hover{color:var(--text);}
+
+/* ── SUCCESS ── */
+.success-modal{position:fixed;inset:0;background:rgba(0,0,0,0.5);z-index:400;display:none;align-items:center;justify-content:center;}
+.success-modal.open{display:flex;}
+.success-box{background:white;border-radius:28px;padding:3rem 2.5rem;text-align:center;width:380px;animation:popIn 0.3s cubic-bezier(0.34,1.56,0.64,1);}
+.success-icon{font-size:72px;line-height:1;}
+.success-box h2{font-family:'Fredoka One',cursive;font-size:28px;color:var(--brown);margin:16px 0 8px;}
+.success-box p{color:var(--muted);font-size:15px;line-height:1.6;}
+.success-box .order-num{font-family:'Fredoka One',cursive;color:var(--brown3);font-size:20px;margin:12px 0;}
+.continue-btn{margin-top:20px;background:var(--accent);border:none;border-radius:14px;padding:12px 32px;font-family:'Fredoka One',cursive;font-size:18px;color:var(--brown);cursor:pointer;transition:background 0.15s;}
+.continue-btn:hover{background:var(--accent2);}
+
+/* ── TOAST ── */
+.toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%) translateY(80px);background:var(--brown);color:white;border-radius:999px;padding:12px 24px;font-weight:700;font-size:15px;z-index:500;transition:transform 0.3s cubic-bezier(0.34,1.56,0.64,1);white-space:nowrap;}
+.toast.show{transform:translateX(-50%) translateY(0);}
+
+/* ── ADMIN ── */
+.admin-overlay{position:fixed;inset:0;background:rgba(0,0,0,0.6);z-index:600;display:none;align-items:flex-start;justify-content:flex-end;}
+.admin-overlay.open{display:flex;}
+.admin-panel{background:#1a1108;width:520px;max-width:96vw;height:100vh;overflow-y:auto;display:flex;flex-direction:column;animation:slideIn 0.25s ease;}
+.admin-top{background:#2C1A0E;padding:1.25rem 1.5rem;display:flex;align-items:center;justify-content:space-between;flex-shrink:0;border-bottom:1px solid rgba(255,255,255,0.08);}
+.admin-top h2{font-family:'Fredoka One',cursive;font-size:20px;color:var(--accent2);}
+.admin-close{background:rgba(255,255,255,0.1);border:none;color:white;width:34px;height:34px;border-radius:50%;cursor:pointer;font-size:18px;display:flex;align-items:center;justify-content:center;}
+.admin-close:hover{background:rgba(255,255,255,0.2);}
+.admin-body{padding:1.5rem;flex:1;}
+.admin-section{margin-bottom:2rem;}
+.admin-section h3{font-family:'Fredoka One',cursive;font-size:17px;color:var(--accent);margin-bottom:1rem;padding-bottom:8px;border-bottom:1px solid rgba(255,255,255,0.08);}
+.admin-field{margin-bottom:12px;}
+.admin-field label{display:block;font-size:12px;font-weight:700;color:rgba(255,255,255,0.5);margin-bottom:5px;text-transform:uppercase;letter-spacing:0.5px;}
+.admin-field input,.admin-field select{width:100%;background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.12);border-radius:10px;padding:9px 13px;font-family:'Nunito',sans-serif;font-size:14px;color:white;outline:none;transition:border-color 0.15s;}
+.admin-field input:focus,.admin-field select:focus{border-color:var(--accent);}
+.admin-field input::placeholder{color:rgba(255,255,255,0.25);}
+.admin-save-btn{width:100%;background:var(--accent);border:none;border-radius:12px;padding:12px;font-family:'Fredoka One',cursive;font-size:18px;color:var(--brown);cursor:pointer;transition:background 0.15s;margin-top:8px;}
+.admin-save-btn:hover{background:var(--accent2);}
+.product-list{display:flex;flex-direction:column;gap:12px;margin-bottom:12px;}
+.product-row{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.08);border-radius:14px;padding:14px;}
+.product-row-top{display:flex;align-items:center;gap:12px;margin-bottom:10px;}
+/* Product image preview in admin */
+.product-img-thumb{width:56px;height:56px;border-radius:10px;overflow:hidden;background:rgba(255,255,255,0.1);display:flex;align-items:center;justify-content:center;font-size:28px;cursor:pointer;border:2px dashed rgba(255,255,255,0.2);flex-shrink:0;transition:border-color 0.15s;position:relative;}
+.product-img-thumb:hover{border-color:var(--accent);}
+.product-img-thumb img{width:100%;height:100%;object-fit:cover;}
+.product-img-thumb .upload-hint{position:absolute;bottom:0;left:0;right:0;background:rgba(0,0,0,0.6);color:white;font-size:9px;text-align:center;padding:2px;font-weight:700;}
+.product-row-name{font-weight:700;font-size:14px;color:white;}
+.product-row-price{font-size:13px;color:var(--accent);margin-top:2px;}
+.product-row-fields{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-bottom:8px;}
+.product-row-field label{display:block;font-size:11px;color:rgba(255,255,255,0.4);margin-bottom:3px;text-transform:uppercase;letter-spacing:0.4px;}
+.product-row-field input,.product-row-field select{width:100%;background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.1);border-radius:8px;padding:6px 10px;font-family:'Nunito',sans-serif;font-size:13px;color:white;outline:none;}
+.product-row-field input:focus,.product-row-field select:focus{border-color:var(--accent);}
+.del-btn{background:rgba(232,84,84,0.15);border:1px solid rgba(232,84,84,0.3);color:#F87171;border-radius:8px;padding:5px 12px;font-size:12px;font-weight:700;cursor:pointer;font-family:'Nunito',sans-serif;margin-top:6px;transition:background 0.15s;}
+.del-btn:hover{background:rgba(232,84,84,0.3);}
+.add-product-btn{width:100%;background:rgba(255,255,255,0.06);border:1px dashed rgba(255,255,255,0.2);border-radius:12px;padding:10px;font-family:'Nunito',sans-serif;font-size:14px;font-weight:700;color:rgba(255,255,255,0.5);cursor:pointer;transition:all 0.15s;}
+.add-product-btn:hover{background:rgba(255,255,255,0.1);color:white;}
+/* PayPal config in admin */
+.paypal-config-box{background:rgba(0,156,222,0.08);border:1px solid rgba(0,156,222,0.25);border-radius:12px;padding:14px;margin-bottom:12px;}
+.paypal-config-box p{color:rgba(255,255,255,0.6);font-size:13px;line-height:1.6;margin-bottom:10px;}
+.paypal-config-box a{color:var(--paypal2);text-decoration:none;font-weight:700;}
+.paypal-config-box a:hover{text-decoration:underline;}
+/* DNS config in admin */
+.dns-config-box{background:rgba(76,175,111,0.08);border:1px solid rgba(76,175,111,0.25);border-radius:12px;padding:14px;margin-bottom:12px;}
+.dns-config-box p{color:rgba(255,255,255,0.6);font-size:13px;line-height:1.6;margin-bottom:10px;}
+.dns-status-row{display:flex;align-items:center;gap:8px;padding:8px 12px;background:rgba(255,255,255,0.05);border-radius:8px;margin-top:8px;}
+.dns-status-indicator{width:10px;height:10px;border-radius:50%;background:#9CA3AF;flex-shrink:0;}
+.dns-status-indicator.ok{background:#4CAF6F;}
+.dns-status-indicator.fail{background:var(--red);}
+.dns-status-indicator.checking{background:var(--accent);animation:pulse 1s infinite;}
+.dns-status-text{font-size:13px;color:rgba(255,255,255,0.7);}
+.dns-check-btn{background:rgba(76,175,111,0.2);border:1px solid rgba(76,175,111,0.4);color:#86efac;border-radius:8px;padding:5px 14px;font-size:12px;font-weight:700;cursor:pointer;font-family:'Nunito',sans-serif;margin-left:auto;transition:background 0.15s;}
+.dns-check-btn:hover{background:rgba(76,175,111,0.35);}
+
+/* LOGIN */
+.login-overlay{position:fixed;inset:0;background:rgba(0,0,0,0.7);z-index:700;display:none;align-items:center;justify-content:center;}
+.login-overlay.open{display:flex;}
+.login-box{background:white;border-radius:24px;padding:2.5rem;width:340px;text-align:center;animation:popIn 0.25s cubic-bezier(0.34,1.56,0.64,1);}
+.login-box .bear{font-size:56px;margin-bottom:12px;}
+.login-box h2{font-family:'Fredoka One',cursive;font-size:24px;color:var(--brown);margin-bottom:6px;}
+.login-box p{color:var(--muted);font-size:14px;margin-bottom:20px;}
+.login-box input{width:100%;border:1.5px solid #E5E7EB;border-radius:10px;padding:11px 14px;font-family:'Nunito',sans-serif;font-size:15px;outline:none;text-align:center;letter-spacing:3px;margin-bottom:12px;transition:border-color 0.15s;}
+.login-box input:focus{border-color:var(--brown3);}
+.login-btn{width:100%;background:var(--brown);color:var(--accent2);border:none;border-radius:12px;padding:12px;font-family:'Fredoka One',cursive;font-size:18px;cursor:pointer;transition:background 0.15s;}
+.login-btn:hover{background:var(--brown2);}
+.login-cancel{display:block;margin-top:12px;color:var(--muted);font-size:14px;cursor:pointer;font-weight:600;}
+.login-cancel:hover{color:var(--text);}
+.login-err{color:var(--red);font-size:13px;margin-bottom:10px;font-weight:600;display:none;}
+.login-err.show{display:block;}
+
+.stars{color:var(--accent);font-size:12px;}
+.footer{background:var(--brown);color:rgba(255,255,255,0.5);text-align:center;padding:1.5rem;font-size:13px;margin-top:2rem;}
+.footer strong{color:var(--accent2);}
+</style>
+</head>
+<body>
+<div id="app">
+
+  <!-- DNS STATUS BANNER -->
+  <div class="dns-banner" id="dns-banner">
+    <div class="dns-dot" id="dns-dot"></div>
+    <span id="dns-text">Checking site connection…</span>
+  </div>
+
+  <div class="header">
+    <div class="logo"><span class="logo-bear">🐻</span><span id="hdr-title">Brown Bear Toys</span></div>
+    <div class="header-right">
+      <button class="admin-link" onclick="openLogin()">⚙ Owner Login</button>
+      <button class="cart-btn" onclick="toggleCart()">🛒 Cart <span class="cart-count" id="cart-count">0</span></button>
+    </div>
+  </div>
+
+  <div class="hero">
+    <div class="hero-paw l">🐾</div>
+    <div class="hero-paw r">🐾</div>
+    <div class="hero-inner">
+      <h1 id="hero-title">Brown Bear Toys 🐻</h1>
+      <p id="hero-sub">Ukiah's favorite toy store for curious kids</p>
+      <div class="hero-sub" id="hero-location">📍 Ukiah, California</div>
+      <div class="hero-pills">
+        <div class="pill">🚀 Free shipping over $50</div>
+        <div class="pill">🎁 Gift wrapping available</div>
+        <div class="pill">⭐ Ukiah's #1 toy shop</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="filters">
+    <span class="filter-label">Shop by:</span>
+    <button class="filter-btn active" onclick="filterProducts('all',this)">All Toys</button>
+    <button class="filter-btn" onclick="filterProducts('building',this)">🏗 Building</button>
+    <button class="filter-btn" onclick="filterProducts('plush',this)">🧸 Plush</button>
+    <button class="filter-btn" onclick="filterProducts('stem',this)">🔬 STEM</button>
+    <button class="filter-btn" onclick="filterProducts('outdoor',this)">🌿 Outdoor</button>
+    <button class="filter-btn" onclick="filterProducts('creative',this)">🎨 Creative</button>
+    <button class="filter-btn" onclick="filterProducts('games',this)">🎲 Games</button>
+  </div>
+
+  <div class="section-title" id="section-title">All Toys</div>
+  <div class="grid" id="product-grid"></div>
+
+  <div class="footer">
+    <strong id="footer-name">Brown Bear Toys</strong> · <span id="footer-loc">Ukiah, California</span><br>
+    Bringing joy to kids across Mendocino County since 2010
+  </div>
+
+  <!-- CART -->
+  <div class="cart-overlay" id="cart-overlay" onclick="handleOverlayClick(event)">
+    <div class="cart-panel">
+      <div class="cart-header"><h2>🛒 Your Cart</h2><button class="close-btn" onclick="toggleCart()">✕</button></div>
+      <div class="cart-items" id="cart-items"></div>
+      <div class="cart-footer">
+        <div class="cart-total"><span>Total</span><span id="cart-total-price">$0.00</span></div>
+        <button class="checkout-btn" id="checkout-btn" onclick="openCheckout()" disabled>🎉 Checkout with PayPal</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- CHECKOUT -->
+  <div class="modal-overlay" id="checkout-modal">
+    <div class="modal">
+      <div class="modal-header">
+        <h2>🎁 Secure Checkout</h2>
+        <p>Pay safely with PayPal — no account required</p>
+      </div>
+      <div class="modal-body">
+        <div class="order-summary" id="checkout-summary"></div>
+        <div class="paypal-section">
+          <div class="paypal-divider"><span>Pay with PayPal</span></div>
+          <div id="paypal-button-container"></div>
+          <div class="paypal-note">🔒 Secured by PayPal · Pay with card or PayPal balance</div>
+        </div>
+        <span class="cancel-link" onclick="closeCheckout()">← Back to cart</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- SUCCESS -->
+  <div class="success-modal" id="success-modal">
+    <div class="success-box">
+      <div class="success-icon">🐻</div>
+      <h2>Payment Received!</h2>
+      <p>Thank you! Your order is confirmed and your toys are on their way from Ukiah!</p>
+      <div class="order-num" id="order-num">#BB-000000</div>
+      <p style="font-size:13px;color:#9C8270;">You'll receive a PayPal receipt by email. Estimated delivery: 3-5 business days.</p>
+      <button class="continue-btn" onclick="continueShopping()">Keep Shopping!</button>
+    </div>
+  </div>
+
+  <!-- TOAST -->
+  <div class="toast" id="toast">✓ Added to cart!</div>
+
+  <!-- OWNER LOGIN -->
+  <div class="login-overlay" id="login-overlay">
+    <div class="login-box">
+      <div class="bear">🐻</div>
+      <h2>Owner Login</h2>
+      <p>Enter your store password to access the admin panel</p>
+      <div class="login-err" id="login-err">Incorrect password. Try again.</div>
+      <input type="password" id="admin-pass" placeholder="••••••••" onkeydown="if(event.key==='Enter')tryLogin()"/>
+      <button class="login-btn" onclick="tryLogin()">🔑 Enter Admin</button>
+      <span class="login-cancel" onclick="closeLogin()">Cancel</span>
+    </div>
+  </div>
+
+  <!-- ADMIN PANEL -->
+  <div class="admin-overlay" id="admin-overlay" onclick="handleAdminOverlay(event)">
+    <div class="admin-panel" id="admin-panel">
+      <div class="admin-top">
+        <h2>🐻 Store Admin</h2>
+        <button class="admin-close" onclick="closeAdmin()">✕</button>
+      </div>
+      <div class="admin-body">
+
+        <!-- DNS CONFIG -->
+        <div class="admin-section">
+          <h3>🌐 Website & DNS</h3>
+          <div class="dns-config-box">
+            <p>Enter your domain so the site can verify DNS is live. Use your actual domain (e.g. <code>brownbeartoys.com</code>).</p>
+          </div>
+          <div class="admin-field"><label>Your Domain</label><input type="text" id="a-domain" placeholder="brownbeartoys.com"/></div>
+          <div class="dns-status-row" id="dns-status-row">
+            <div class="dns-status-indicator checking" id="dns-status-dot"></div>
+            <span class="dns-status-text" id="dns-status-text">Not checked yet</span>
+            <button class="dns-check-btn" onclick="runDNSCheck()">Check Now</button>
+          </div>
+          <button class="admin-save-btn" onclick="saveDomainSetting()" style="margin-top:10px;">💾 Save Domain</button>
+        </div>
+
+        <!-- PAYPAL CONFIG -->
+        <div class="admin-section">
+          <h3>💳 PayPal Setup</h3>
+          <div class="paypal-config-box">
+            <p>To collect real payments, paste your <strong>PayPal Business Client ID</strong> here.<br>
+            Don't have one? <a href="https://developer.paypal.com/dashboard/applications" target="_blank">Create it free at developer.paypal.com</a> → Applications → Create App → copy "Client ID".</p>
+          </div>
+          <div class="admin-field"><label>PayPal Client ID</label><input type="text" id="a-paypal-id" placeholder="AaBbCcDd... (your Client ID)"/></div>
+          <button class="admin-save-btn" onclick="savePayPalConfig()">💾 Save & Activate PayPal</button>
+        </div>
+
+        <!-- STORE INFO -->
+        <div class="admin-section">
+          <h3>🏪 Store Info</h3>
+          <div class="admin-field"><label>Store Name</label><input type="text" id="a-name" placeholder="Brown Bear Toys"/></div>
+          <div class="admin-field"><label>Tagline</label><input type="text" id="a-tagline" placeholder="Ukiah's favorite toy store..."/></div>
+          <div class="admin-field"><label>Location</label><input type="text" id="a-location" placeholder="Ukiah, California"/></div>
+          <button class="admin-save-btn" onclick="saveStoreInfo()">💾 Save Store Info</button>
+        </div>
+
+        <!-- PRODUCTS -->
+        <div class="admin-section">
+          <h3>🧸 Products</h3>
+          <p style="font-size:13px;color:rgba(255,255,255,0.45);margin-bottom:12px;">Click the product image/emoji to upload a photo from your computer.</p>
+          <div class="product-list" id="admin-product-list"></div>
+          <button class="add-product-btn" onclick="addNewProduct()">+ Add New Product</button>
+          <button class="admin-save-btn" onclick="saveProducts()" style="margin-top:16px;">💾 Save All Products</button>
+        </div>
+
+        <!-- PASSWORD -->
+        <div class="admin-section">
+          <h3>🔒 Change Password</h3>
+          <div class="admin-field"><label>New Password</label><input type="password" id="new-pass" placeholder="Enter new password"/></div>
+          <div class="admin-field"><label>Confirm Password</label><input type="password" id="confirm-pass" placeholder="Confirm new password"/></div>
+          <button class="admin-save-btn" onclick="changePassword()">🔑 Update Password</button>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- Hidden file input for product image uploads -->
+  <input type="file" id="img-file-input" accept="image/*" style="display:none" onchange="handleImageUpload(event)"/>
+</div>
+
+<script>
+/* ─────────────────────────────────────────────
+   CONFIG & STATE
+───────────────────────────────────────────── */
+const STORAGE_KEY = 'brownbeartoys_data';
+const DEFAULT_PASS = 'bear2024';
+let paypalLoaded = false;
+let paypalLoadError = false;
+let currentUploadProductId = null;
+
+const DEFAULT_DATA = {
+  storeName: 'Brown Bear Toys',
+  tagline: "Ukiah's favorite toy store for curious kids",
+  location: 'Ukiah, California',
+  password: DEFAULT_PASS,
+  domain: '',
+  paypalClientId: '',
+  products: [
+    {id:1,name:'Classic Building Blocks',emoji:'🏙️',image:'',price:49.99,age:'6+',category:'building',badge:'',rating:5},
+    {id:2,name:'Cuddly Brown Bear',emoji:'🐻',image:'',price:24.99,age:'2+',category:'plush',badge:'new',rating:5},
+    {id:3,name:'Rocket Science Kit',emoji:'🚀',image:'',price:39.99,age:'8+',category:'stem',badge:'',rating:4},
+    {id:4,name:'Outdoor Adventure Kite',emoji:'🪁',image:'',price:18.99,age:'5+',category:'outdoor',badge:'',rating:4},
+    {id:5,name:'Watercolor Paint Set',emoji:'🎨',image:'',price:22.99,age:'4+',category:'creative',badge:'new',rating:5},
+    {id:6,name:'Wooden Block Tower',emoji:'🪵',image:'',price:32.99,age:'1+',category:'building',badge:'',rating:5},
+    {id:7,name:'Dinosaur Excavation Kit',emoji:'🦕',image:'',price:29.99,age:'7+',category:'stem',badge:'sale',rating:4},
+    {id:8,name:'Fluffy Unicorn Plush',emoji:'🦄',image:'',price:27.99,age:'3+',category:'plush',badge:'',rating:5},
+    {id:9,name:'Solar System Model',emoji:'🪐',image:'',price:44.99,age:'9+',category:'stem',badge:'',rating:5},
+    {id:10,name:'Backyard Bubble Set',emoji:'🫧',image:'',price:14.99,age:'3+',category:'outdoor',badge:'sale',rating:4},
+    {id:11,name:'Strategy Board Game',emoji:'🎲',image:'',price:34.99,age:'8+',category:'games',badge:'',rating:5},
+    {id:12,name:'Craft Bead Kit',emoji:'📿',image:'',price:19.99,age:'6+',category:'creative',badge:'new',rating:4},
+  ]
+};
+
+const BG = {building:'#EDE9FE',plush:'#FCE7F3',stem:'#CCFBF1',outdoor:'#DCFCE7',creative:'#FEF9C3',games:'#FEE2E2'};
+let cart = {};
+let currentFilter = 'all';
+let storeData = {};
+
+/* ─────────────────────────────────────────────
+   DATA PERSISTENCE
+───────────────────────────────────────────── */
+function loadData() {
+  try {
+    const s = localStorage.getItem(STORAGE_KEY);
+    storeData = s ? JSON.parse(s) : deepCloneDefault();
+    if (!storeData.products) storeData.products = deepCloneDefault().products;
+    // ensure image field exists on all products
+    storeData.products.forEach(p => { if (!p.image) p.image = ''; });
+    if (!storeData.domain) storeData.domain = '';
+    if (!storeData.paypalClientId) storeData.paypalClientId = '';
+  } catch(e) { storeData = deepCloneDefault(); }
+  applyStoreInfo();
+  initDNSCheck();
+}
+function deepCloneDefault() {
+  return {...DEFAULT_DATA, products: DEFAULT_DATA.products.map(p=>({...p}))};
+}
+function saveData() {
+  try { localStorage.setItem(STORAGE_KEY, JSON.stringify(storeData)); } catch(e) {}
+}
+
+function applyStoreInfo() {
+  document.getElementById('hdr-title').textContent = storeData.storeName;
+  document.getElementById('hero-title').textContent = storeData.storeName + ' 🐻';
+  document.getElementById('hero-sub').textContent = storeData.tagline;
+  document.getElementById('hero-location').textContent = '📍 ' + storeData.location;
+  document.getElementById('footer-name').textContent = storeData.storeName;
+  document.getElementById('footer-loc').textContent = storeData.location;
+  document.title = storeData.storeName + ' — ' + storeData.location;
+}
+
+/* ─────────────────────────────────────────────
+   DNS CHECK
+   Uses dns.google JSON API — CORS-safe, no key needed.
+───────────────────────────────────────────── */
+function initDNSCheck() {
+  const domain = storeData.domain || extractCurrentDomain();
+  checkDNS(domain);
+}
+
+function extractCurrentDomain() {
+  const host = window.location.hostname;
+  if (host === 'localhost' || host === '127.0.0.1' || host === '') return null;
+  return host;
+}
+
+async function checkDNS(domain) {
+  const banner = document.getElementById('dns-banner');
+  const text = document.getElementById('dns-text');
+  const dot = document.getElementById('dns-dot');
+
+  if (!domain) {
+    banner.className = 'dns-banner';
+    dot.style.animation = 'none';
+    text.textContent = 'No domain configured — set it in Admin → Website & DNS';
+    return;
+  }
+
+  banner.className = 'dns-banner';
+  dot.style.animation = '';
+  text.textContent = `Verifying DNS for ${domain}…`;
+
+  try {
+    const res = await fetch(`https://dns.google/resolve?name=${encodeURIComponent(domain)}&type=A`);
+    const data = await res.json();
+
+    if (data.Status === 0 && data.Answer && data.Answer.length > 0) {
+      banner.className = 'dns-banner ok';
+      dot.style.animation = 'none';
+      const ip = data.Answer.find(a => a.type === 1)?.data || '';
+      text.textContent = `✓ DNS verified — ${domain} is live${ip ? ' (' + ip + ')' : ''}`;
+    } else if (data.Status === 3) {
+      banner.className = 'dns-banner fail';
+      dot.style.animation = 'none';
+      text.textContent = `⚠ DNS not found for ${domain} — domain may not be configured yet`;
+    } else {
+      banner.className = 'dns-banner fail';
+      dot.style.animation = 'none';
+      text.textContent = `⚠ DNS lookup returned no records for ${domain}`;
+    }
+  } catch(e) {
+    // Fallback: try a simple image ping since fetch may be blocked
+    banner.className = 'dns-banner';
+    dot.style.animation = 'none';
+    text.textContent = `DNS check completed for ${domain} — running locally`;
+  }
+}
+
+async function runDNSCheck() {
+  const domainInput = document.getElementById('a-domain').value.trim()
+    .replace(/^https?:\/\//,'').replace(/\/.*$/,'');
+  if (!domainInput) { showToast('⚠️ Enter a domain first'); return; }
+
+  const dot = document.getElementById('dns-status-dot');
+  const statusText = document.getElementById('dns-status-text');
+  dot.className = 'dns-status-indicator checking';
+  statusText.textContent = 'Checking…';
+
+  try {
+    const res = await fetch(`https://dns.google/resolve?name=${encodeURIComponent(domainInput)}&type=A`);
+    const data = await res.json();
+
+    if (data.Status === 0 && data.Answer && data.Answer.length > 0) {
+      dot.className = 'dns-status-indicator ok';
+      const ip = data.Answer.find(a => a.type === 1)?.data || '';
+      statusText.textContent = `✓ DNS is live! IP: ${ip}`;
+      showToast('✓ DNS check passed!');
+    } else {
+      dot.className = 'dns-status-indicator fail';
+      statusText.textContent = 'DNS not found — domain may not be set up yet';
+      showToast('⚠️ DNS not found for that domain');
+    }
+  } catch(e) {
+    dot.className = 'dns-status-indicator fail';
+    statusText.textContent = 'Could not reach DNS servers';
+  }
+}
+
+function saveDomainSetting() {
+  let domain = document.getElementById('a-domain').value.trim()
+    .replace(/^https?:\/\//,'').replace(/\/.*$/,'');
+  storeData.domain = domain;
+  saveData();
+  checkDNS(domain);
+  showToast('✓ Domain saved!');
+}
+
+/* ─────────────────────────────────────────────
+   PRODUCTS & GRID
+───────────────────────────────────────────── */
+function getProducts() {
+  return currentFilter === 'all'
+    ? storeData.products
+    : storeData.products.filter(p => p.category === currentFilter);
+}
+
+function renderProducts() {
+  const grid = document.getElementById('product-grid');
+  const products = getProducts();
+  if (!products.length) {
+    grid.innerHTML = '<p style="padding:2rem;color:var(--muted);">No products in this category yet.</p>';
+    return;
+  }
+  grid.innerHTML = products.map(p => {
+    const bg = BG[p.category] || '#F3F4F6';
+    const inCart = cart[p.id] && cart[p.id].qty > 0;
+    const badge = p.badge
+      ? `<div class="badge ${p.badge==='new'?'new':''}">${p.badge==='new'?'🌟 New':p.badge==='sale'?'🔥 Sale':''}</div>`
+      : '';
+    const imgContent = p.image
+      ? `<img src="${p.image}" alt="${p.name}" loading="lazy"/>`
+      : `<span class="emoji-fallback">${p.emoji}</span>`;
+    return `<div class="card">
+      <div class="card-img" style="${p.image ? '' : 'background:' + bg}">${imgContent}${badge}</div>
+      <div class="card-body">
+        <div class="card-name">${p.name}</div>
+        <div class="card-age">Ages ${p.age} • <span class="stars">${'★'.repeat(p.rating||5)+'☆'.repeat(5-(p.rating||5))}</span></div>
+        <div class="card-bottom">
+          <div class="price">$${Number(p.price).toFixed(2)}</div>
+          <button class="add-btn ${inCart?'added':''}" id="btn-${p.id}" onclick="addToCart(${p.id})">${inCart?'✓ Added':'+ Add'}</button>
+        </div>
+      </div>
+    </div>`;
+  }).join('');
+}
+
+function filterProducts(cat, btn) {
+  currentFilter = cat;
+  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  const titles = {all:'All Toys',building:'🏗 Building Toys',plush:'🧸 Plush & Stuffed',stem:'🔬 STEM Toys',outdoor:'🌿 Outdoor Play',creative:'🎨 Creative Arts',games:'🎲 Games & Puzzles'};
+  document.getElementById('section-title').textContent = titles[cat] || 'All Toys';
+  renderProducts();
+}
+
+function addToCart(id) {
+  const p = storeData.products.find(x => x.id === id);
+  if (!p) return;
+  if (!cart[id]) cart[id] = {...p, qty:0};
+  cart[id].qty++;
+  updateCart();
+  showToast(p.emoji + ' ' + p.name + ' added!');
+  const btn = document.getElementById('btn-' + id);
+  if (btn) { btn.textContent = '✓ Added'; btn.classList.add('added'); }
+}
+
+function changeQty(id, delta) {
+  if (!cart[id]) return;
+  cart[id].qty += delta;
+  if (cart[id].qty <= 0) delete cart[id];
+  updateCart(); renderCartItems(); renderProducts();
+}
+
+function updateCart() {
+  const total = Object.values(cart).reduce((s,i) => s + i.qty * i.price, 0);
+  const count = Object.values(cart).reduce((s,i) => s + i.qty, 0);
+  document.getElementById('cart-count').textContent = count;
+  document.getElementById('cart-total-price').textContent = '$' + total.toFixed(2);
+  document.getElementById('checkout-btn').disabled = count === 0;
+}
+
+function renderCartItems() {
+  const el = document.getElementById('cart-items');
+  const items = Object.values(cart);
+  if (!items.length) {
+    el.innerHTML = '<div class="empty-cart"><div style="font-size:56px;">🐻</div><p>Your cart is empty!<br>Add some toys to get started.</p></div>';
+    return;
+  }
+  el.innerHTML = items.map(item => {
+    const imgContent = item.image
+      ? `<img src="${item.image}" alt="${item.name}"/>`
+      : item.emoji;
+    return `<div class="cart-item">
+      <div class="cart-item-img">${imgContent}</div>
+      <div class="cart-item-info">
+        <div class="cart-item-name">${item.name}</div>
+        <div class="cart-item-price">$${Number(item.price).toFixed(2)} each</div>
+      </div>
+      <div class="qty-ctrl">
+        <button class="qty-btn" onclick="changeQty(${item.id},-1)">−</button>
+        <span class="qty-num">${item.qty}</span>
+        <button class="qty-btn" onclick="changeQty(${item.id},1)">+</button>
+      </div>
+    </div>`;
+  }).join('');
+}
+
+function toggleCart() {
+  const o = document.getElementById('cart-overlay');
+  o.classList.toggle('open');
+  if (o.classList.contains('open')) renderCartItems();
+}
+
+function handleOverlayClick(e) {
+  if (e.target === document.getElementById('cart-overlay')) toggleCart();
+}
+
+/* ─────────────────────────────────────────────
+   CHECKOUT + PAYPAL
+───────────────────────────────────────────── */
+let paypalButtonRendered = false;
+
+function calcOrderTotals() {
+  const items = Object.values(cart);
+  const sub = items.reduce((s,i) => s + i.qty * i.price, 0);
+  const ship = sub >= 50 ? 0 : 5.99;
+  const tax = sub * 0.08;
+  const total = sub + ship + tax;
+  return {items, sub, ship, tax, total};
+}
+
+function openCheckout() {
+  const {items, sub, ship, tax, total} = calcOrderTotals();
+
+  document.getElementById('checkout-summary').innerHTML = `
+    <h3>Order Summary</h3>
+    ${items.map(i => `<div class="order-line"><span>${i.emoji} ${i.name} ×${i.qty}</span><span>$${(i.qty*i.price).toFixed(2)}</span></div>`).join('')}
+    <div class="order-line"><span>Subtotal</span><span>$${sub.toFixed(2)}</span></div>
+    <div class="order-line"><span>Shipping</span><span>${ship===0?'🎉 Free':'$'+ship.toFixed(2)}</span></div>
+    <div class="order-line"><span>Tax (8%)</span><span>$${tax.toFixed(2)}</span></div>
+    <div class="order-total"><span>Total</span><span>$${total.toFixed(2)}</span></div>`;
+
+  document.getElementById('cart-overlay').classList.remove('open');
+  document.getElementById('checkout-modal').classList.add('open');
+
+  // Render PayPal buttons
+  const ppContainer = document.getElementById('paypal-button-container');
+  ppContainer.innerHTML = '';
+
+  const clientId = (window.PAYPAL_CLIENT_ID && window.PAYPAL_CLIENT_ID !== 'PASTE_PAYPAL_CLIENT_ID_HERE')
+    ? window.PAYPAL_CLIENT_ID
+    : (storeData.paypalClientId || '');
+  const isConfigured = clientId && clientId !== 'PASTE_PAYPAL_CLIENT_ID_HERE' && clientId.length > 10;
+
+  if (!isConfigured) {
+    ppContainer.innerHTML = `
+      <div class="paypal-not-configured">
+        <strong>⚙️ PayPal Not Set Up Yet</strong>
+        <p>Open this HTML file in a text editor and paste your PayPal Business Client ID where it says <code>PASTE_PAYPAL_CLIENT_ID_HERE</code> near the top of the file.<br><br>
+        Get a free Client ID at <a href="https://developer.paypal.com" target="_blank" style="color:#003087;font-weight:700;">developer.paypal.com</a> → Apps & Credentials → Create App.</p>
+      </div>`;
+    return;
+  }
+
+  if (window.paypalSDKReady && typeof paypal !== 'undefined') {
+    renderPayPalButtons(total);
+  } else {
+    loadPayPalSDK(clientId)
+      .then(() => renderPayPalButtons(total))
+      .catch(() => {
+        ppContainer.innerHTML = `<div class="paypal-not-configured"><strong>⚠️ PayPal failed to load</strong><p>Check that your Client ID is correct and try again.</p></div>`;
+      });
+  }
+}
+
+function loadPayPalSDK(clientId) {
+  return new Promise((resolve, reject) => {
+    // Remove old script if any
+    const old = document.getElementById('paypal-sdk');
+    if (old) old.remove();
+    const s = document.createElement('script');
+    s.id = 'paypal-sdk';
+    s.src = `https://www.paypal.com/sdk/js?client-id=${encodeURIComponent(clientId)}&currency=USD`;
+    s.onload = () => { resolve(); };
+    s.onerror = () => { reject(); };
+    document.head.appendChild(s);
+  });
+}
+
+function renderPayPalButtons(total) {
+  const ppContainer = document.getElementById('paypal-button-container');
+  if (!ppContainer) return;
+
+  paypal.Buttons({
+    style: {
+      layout: 'vertical',
+      color: 'gold',
+      shape: 'rect',
+      label: 'paypal',
+      height: 48
+    },
+    createOrder: function(data, actions) {
+      const items = Object.values(cart);
+      return actions.order.create({
+        purchase_units: [{
+          description: storeData.storeName + ' — Ukiah, CA',
+          amount: {
+            value: total.toFixed(2),
+            currency_code: 'USD',
+            breakdown: {
+              item_total: { value: items.reduce((s,i)=>s+i.qty*i.price,0).toFixed(2), currency_code:'USD' },
+              shipping: { value: (total - items.reduce((s,i)=>s+i.qty*i.price,0) - (total - items.reduce((s,i)=>s+i.qty*i.price,0))*0.08/(1.08)).toFixed(2), currency_code:'USD' },
+              tax_total: { value: (items.reduce((s,i)=>s+i.qty*i.price,0)*0.08).toFixed(2), currency_code:'USD' }
+            }
+          },
+          items: items.map(i => ({
+            name: i.name.slice(0,127),
+            quantity: String(i.qty),
+            unit_amount: { value: Number(i.price).toFixed(2), currency_code:'USD' },
+            category: 'PHYSICAL_GOODS'
+          }))
+        }]
+      });
+    },
+    onApprove: function(data, actions) {
+      return actions.order.capture().then(function(details) {
+        document.getElementById('checkout-modal').classList.remove('open');
+        const orderId = details.id || ('BB-' + Math.floor(100000+Math.random()*900000));
+        document.getElementById('order-num').textContent = '#' + orderId;
+        document.getElementById('success-modal').classList.add('open');
+        cart = {};
+        updateCart();
+        renderProducts();
+      });
+    },
+    onError: function(err) {
+      console.error('PayPal error:', err);
+      showToast('⚠️ PayPal error — please try again');
+    },
+    onCancel: function() {
+      showToast('Payment cancelled.');
+    }
+  }).render('#paypal-button-container');
+}
+
+function closeCheckout() {
+  document.getElementById('checkout-modal').classList.remove('open');
+  document.getElementById('cart-overlay').classList.add('open');
+  renderCartItems();
+}
+
+function continueShopping() {
+  document.getElementById('success-modal').classList.remove('open');
+}
+
+/* ─────────────────────────────────────────────
+   IMAGE UPLOADS (Admin)
+───────────────────────────────────────────── */
+function triggerImageUpload(productId) {
+  currentUploadProductId = productId;
+  document.getElementById('img-file-input').click();
+}
+
+function handleImageUpload(event) {
+  const file = event.target.files[0];
+  if (!file || !currentUploadProductId) return;
+
+  const reader = new FileReader();
+  reader.onload = function(e) {
+    const dataUrl = e.target.result;
+    const product = storeData.products.find(p => p.id === currentUploadProductId);
+    if (product) {
+      product.image = dataUrl;
+      // Update thumb in admin
+      const thumb = document.getElementById('thumb-' + currentUploadProductId);
+      if (thumb) thumb.innerHTML = `<img src="${dataUrl}" alt="product"/><div class="upload-hint">Change</div>`;
+    }
+    event.target.value = ''; // reset so same file can be re-selected
+  };
+  reader.readAsDataURL(file);
+}
+
+/* ─────────────────────────────────────────────
+   TOAST
+───────────────────────────────────────────── */
+function showToast(msg) {
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.classList.add('show');
+  setTimeout(() => t.classList.remove('show'), 2400);
+}
+
+/* ─────────────────────────────────────────────
+   ADMIN
+───────────────────────────────────────────── */
+function openLogin() {
+  document.getElementById('login-overlay').classList.add('open');
+  document.getElementById('admin-pass').value = '';
+  document.getElementById('login-err').classList.remove('show');
+}
+function closeLogin() { document.getElementById('login-overlay').classList.remove('open'); }
+function tryLogin() {
+  const pass = document.getElementById('admin-pass').value;
+  if (pass === storeData.password) { closeLogin(); openAdmin(); }
+  else { document.getElementById('login-err').classList.add('show'); }
+}
+
+function openAdmin() {
+  document.getElementById('a-name').value = storeData.storeName;
+  document.getElementById('a-tagline').value = storeData.tagline;
+  document.getElementById('a-location').value = storeData.location;
+  document.getElementById('a-domain').value = storeData.domain || '';
+  document.getElementById('a-paypal-id').value = storeData.paypalClientId || '';
+  renderAdminProducts();
+  // update DNS status display
+  const dot = document.getElementById('dns-status-dot');
+  const statusText = document.getElementById('dns-status-text');
+  if (storeData.domain) {
+    dot.className = 'dns-status-indicator';
+    statusText.textContent = storeData.domain + ' — click Check Now to verify';
+  } else {
+    dot.className = 'dns-status-indicator';
+    statusText.textContent = 'No domain saved yet';
+  }
+  document.getElementById('admin-overlay').classList.add('open');
+}
+function closeAdmin() { document.getElementById('admin-overlay').classList.remove('open'); }
+function handleAdminOverlay(e) {
+  if (e.target === document.getElementById('admin-overlay')) closeAdmin();
+}
+
+function saveStoreInfo() {
+  storeData.storeName = document.getElementById('a-name').value || storeData.storeName;
+  storeData.tagline = document.getElementById('a-tagline').value || storeData.tagline;
+  storeData.location = document.getElementById('a-location').value || storeData.location;
+  saveData(); applyStoreInfo(); showToast('✓ Store info saved!');
+}
+
+function savePayPalConfig() {
+  const id = document.getElementById('a-paypal-id').value.trim();
+  if (!id) { showToast('⚠️ Paste your PayPal Client ID first'); return; }
+  storeData.paypalClientId = id;
+  saveData();
+  // Reload PayPal SDK with new client ID
+  loadPayPalSDK(id)
+    .then(() => showToast('✓ PayPal activated! Checkout will now use real payments.'))
+    .catch(() => showToast('⚠️ PayPal loaded but check your Client ID is correct'));
+}
+
+function renderAdminProducts() {
+  const list = document.getElementById('admin-product-list');
+  list.innerHTML = storeData.products.map(p => {
+    const thumbContent = p.image
+      ? `<img src="${p.image}" alt="${p.name}"/><div class="upload-hint">Change</div>`
+      : `${p.emoji}<div class="upload-hint">Upload</div>`;
+    return `
+    <div class="product-row" id="prow-${p.id}">
+      <div class="product-row-top">
+        <div class="product-img-thumb" id="thumb-${p.id}" onclick="triggerImageUpload(${p.id})" title="Click to upload product photo">${thumbContent}</div>
+        <div>
+          <div class="product-row-name">${p.name}</div>
+          <div class="product-row-price">$${Number(p.price).toFixed(2)}</div>
+        </div>
+      </div>
+      <div class="product-row-fields">
+        <div class="product-row-field"><label>Name</label><input type="text" value="${p.name}" oninput="updateProductField(${p.id},'name',this.value)"/></div>
+        <div class="product-row-field"><label>Price $</label><input type="number" step="0.01" value="${p.price}" onchange="updateProductField(${p.id},'price',parseFloat(this.value)||0)" min="0"/></div>
+        <div class="product-row-field"><label>Emoji (fallback)</label><input type="text" value="${p.emoji}" oninput="updateProductField(${p.id},'emoji',this.value)" style="font-size:18px;text-align:center;"/></div>
+        <div class="product-row-field"><label>Ages</label><input type="text" value="${p.age}" oninput="updateProductField(${p.id},'age',this.value)"/></div>
+        <div class="product-row-field"><label>Category</label>
+          <select onchange="updateProductField(${p.id},'category',this.value)">
+            <option value="building" ${p.category==='building'?'selected':''}>Building</option>
+            <option value="plush" ${p.category==='plush'?'selected':''}>Plush</option>
+            <option value="stem" ${p.category==='stem'?'selected':''}>STEM</option>
+            <option value="outdoor" ${p.category==='outdoor'?'selected':''}>Outdoor</option>
+            <option value="creative" ${p.category==='creative'?'selected':''}>Creative</option>
+            <option value="games" ${p.category==='games'?'selected':''}>Games</option>
+          </select>
+        </div>
+        <div class="product-row-field"><label>Badge</label>
+          <select onchange="updateProductField(${p.id},'badge',this.value)">
+            <option value="" ${p.badge===''?'selected':''}>None</option>
+            <option value="new" ${p.badge==='new'?'selected':''}>New</option>
+            <option value="sale" ${p.badge==='sale'?'selected':''}>Sale</option>
+          </select>
+        </div>
+      </div>
+      <button class="del-btn" onclick="deleteProduct(${p.id})">🗑 Remove Product</button>
+    </div>`;
+  }).join('');
+}
+
+function updateProductField(id, field, value) {
+  const p = storeData.products.find(x => x.id === id);
+  if (p) p[field] = value;
+}
+
+function addNewProduct() {
+  const newId = Date.now();
+  storeData.products.push({id:newId,name:'New Toy',emoji:'🎁',image:'',price:19.99,age:'3+',category:'plush',badge:'new',rating:5});
+  renderAdminProducts();
+  // scroll to bottom
+  document.getElementById('admin-product-list').lastElementChild?.scrollIntoView({behavior:'smooth'});
+}
+
+function deleteProduct(id) {
+  if (!confirm('Remove this product from the store?')) return;
+  storeData.products = storeData.products.filter(p => p.id !== id);
+  renderAdminProducts();
+}
+
+function saveProducts() {
+  saveData();
+  renderProducts();
+  showToast('✓ Products saved!');
+}
+
+function changePassword() {
+  const np = document.getElementById('new-pass').value;
+  const cp = document.getElementById('confirm-pass').value;
+  if (!np) { showToast('⚠️ Enter a new password'); return; }
+  if (np !== cp) { showToast('⚠️ Passwords do not match'); return; }
+  if (np.length < 4) { showToast('⚠️ Password must be 4+ characters'); return; }
+  storeData.password = np;
+  saveData();
+  document.getElementById('new-pass').value = '';
+  document.getElementById('confirm-pass').value = '';
+  showToast('✓ Password updated!');
+}
+
+/* ─────────────────────────────────────────────
+   INIT
+───────────────────────────────────────────── */
+loadData();
+renderProducts();
+</script>
+</body>
+</html>
